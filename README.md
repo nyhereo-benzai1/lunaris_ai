@@ -1,159 +1,176 @@
-markdown
-<h1 align="center">🧠🎙️ Offline Chat Companion</h1>
-<p align="center">
-A local, privacy-first AI assistant built with LLMs, LangChain, vector memory, and speech processing — all running offline.
-</p>
 
-<p align="center">
-  <img src="images/offline-companion.gif" alt="Offline Chat Companion Demo" width="600"/>
-</p>
+# 🌙 Lunaris AI — Your Offline AI Chat Companion
+
+Lunaris AI is a fully offline, privacy-first AI chat companion built using [Dalai](https://github.com/cocktailpeanut/dalai) and powered by lightweight Large Language Models (LLMs) such as LLaMA and Alpaca. This project transforms your local machine into an intelligent assistant without depending on any external APIs or internet access.
+
+Whether you're a developer, researcher, or privacy enthusiast — Lunaris AI is designed to offer smart conversations completely **locally**, **securely**, and **independently**.
 
 ---
 
-## 📌 What is this?
+## 🌟 Key Features
 
-The **Offline Chat Companion** is your intelligent, memory-enhanced chat assistant designed to work completely offline — no internet, no cloud, just you and your device. It's perfect for:
+✨ **100% Offline Chat AI**  
+> No data sent to the cloud. Everything runs on your device, giving you complete control.
 
-- 🔒 Privacy advocates  
-- 💻 Developers seeking a customizable AI chatbot  
-- 🧠 Experiments with memory-enhanced LLMs  
-- 🎙️ Speech-based offline assistants  
+⚙️ **Dalai Integration**  
+> Uses Dalai to run Meta's LLaMA and Stanford's Alpaca models.
 
----
+💬 **User-Friendly Interface**  
+> Clean web UI to interact with the model locally at `localhost:3000`.
 
-## ✨ Features
+🧪 **Customizable Parameters**  
+> Control top-k, top-p, temperature, tokens, and more from the UI.
 
-- 🧠 **Local LLM Integration**: Built on **Alpaca.cpp** using **Dalai** for local inference  
-- 💬 **Natural Language Chat Interface**: Type or speak your inputs  
-- 🗣️ **Speech-to-Text + Text-to-Speech**: Full voice interaction using offline STT and TTS  
-- 🧬 **Memory Module**: FAISS-powered vector database stores past interactions  
-- 🔗 **LangChain Integration**: Tool chaining and custom agents  
-- 🚫 **100% Offline**: Works without internet — your data stays on your machine  
+📷 **UI Demo Included**  
+> See the real-time interaction and local inference in action.
 
----
-
-## 🎥 Screenshots & Demo
-
-### 🧠 Chat Companion in Action
-<p align="center">
-  <img src="images/offline_.png" alt="Offline Chat UI" width="500"/>
-</p>
-
-### 🎞️ Demo GIF
-<p align="center">
-  <img src="images/offline-companion.gif" alt="Chat Companion Demo" width="600"/>
-</p>
+🔒 **No Dependencies on External APIs**  
+> Internet is not required after setup. Truly autonomous.
 
 ---
 
-## 🧬 How It Works
+## 📦 Tech Stack
 
-The **Offline Chat Companion** runs entirely offline using open-source technologies and your machine's hardware.
-
-### 📂 1. Model Setup & Hosting
-- `npx dalai serve` spins up a local server and loads Alpaca 7B.  
-- All model files are stored locally; no further internet needed.
-
-### 💬 2. Chat Interface
-- HTML + JS frontend served at `http://localhost:3000`  
-- Input text is sent to Dalai via HTTP
-
-### 🧠 3. Inference Pipeline
-```text
-User Prompt → Dalai Server → Alpaca Model → Generated Response → Sent Back to UI
-```
-
-### ⚙️ 4. Parameter Controls
-- Customize temperature, top_k, n_predict, repeat_penalty to shape response style
-
-### 🔐 5. Offline by Design
-- Zero API keys or cloud dependencies  
-- Ideal for private setups or air-gapped systems
+| Component     | Description                                      |
+|---------------|--------------------------------------------------|
+| **Dalai**     | JS-based tool for running LLaMA and Alpaca       |
+| **Node.js**   | Local server for hosting chat UI                 |
+| **Alpaca.7B** | Fine-tuned version of Meta’s LLaMA model         |
+| **HTML/CSS**  | Frontend rendering of chat interface             |
 
 ---
 
-## 🛠 Tech Stack
+## 🖥️ Installation Guide
 
-| Tool / Library        | Purpose                         |
-|----------------------|---------------------------------|
-| `Dalai`              | Serve LLaMA / Alpaca locally     |
-| `Alpaca.cpp`         | Lightweight LLM backend          |
-| `LangChain`          | Agent framework / memory tools   |
-| `FAISS`              | Vector search DB (for memory)    |
-| `Whisper` (Offline)  | Speech-to-text                   |
-| `Coqui TTS` / `pyttsx3` | Text-to-speech engine        |
-| `Gradio` / `Tkinter` | (Optional) for GUI frontend      |
+> Follow the steps below to set up Lunaris AI on your system.
 
----
-
-## 🗂️ Project Structure
+### 1️⃣ Clone the Repository
 
 ```bash
-offline-chat-companion/
-├── app.py                    # Main script to run the companion
-├── llama_interface.py        # Handles LLM interaction
-├── langchain_interface.py    # LangChain integration and chaining
-├── memory/
-│   ├── vector_db/            # FAISS-based memory storage
-│   └── memory_utils.py
-├── speech/
-│   ├── stt.py                # Speech-to-text module
-│   └── tts.py                # Text-to-speech module
-├── images/                   # Screenshots & GIFs
-├── requirements.txt
-└── README.md
+git clone https://github.com/nyhereo-benzai1/lunaris_ai.git
+cd lunaris_ai
 ```
 
----
+### 2️⃣ Install Dalai
 
-## 🚀 Getting Started
-
-### 📥 Clone & Install
+Dalai handles downloading and setting up the required models. It’s a wrapper that simplifies LLaMA/Alpaca installation.
 
 ```bash
-git clone https://github.com/nyhereo-benzai1/offline-chat-companion.git
-cd offline-chat-companion
-pip install -r requirements.txt
+npx dalai@latest install
 ```
 
-### ▶️ Run the App
+### 3️⃣ Serve the Application
+
+Start the Dalai server to access the chat UI.
 
 ```bash
-python app.py
+npx dalai serve
 ```
 
-Make sure you have a local LLaMA or Alpaca model installed via [Dalai](https://github.com/cocktailpeanut/dalai).
+### 4️⃣ Open in Browser
 
----
+Navigate to:
 
-## 🛤️ Roadmap
-
-- ✅ Initial local LLM integration  
-- ✅ STT + TTS support (voice interaction)  
-- ✅ Memory module with FAISS  
-- 🔲 Add personality presets / modes  
-- 🔲 GUI frontend (Tkinter or Gradio)  
-- 🔲 Multilingual support  
-- 🔲 Agent-based actions (file search, note writing, etc.)  
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
-
----
-
-## 💖 Made with Love by Nyx
-
-> *“Building my own AI, one offline neuron at a time.”*
-
-<p align="center">
-  <img src="https://img.shields.io/github/stars/nyhereo-benzai1/offline-chat-companion?style=social">
-  <img src="https://img.shields.io/github/forks/nyhereo-benzai1/offline-chat-companion?style=social">
-</p>
+```
+http://localhost:3000
 ```
 
 ---
 
-Just go to your repo > click on `README.md` > click the ✏️ pencil icon to edit, and paste this content in. Let me know when you're ready for the GitHub profile README magic! 🌟
+## 🧪 UI & Demo
+
+### 📸 Screenshot
+
+> Preview of the chat interface running locally.
+
+![Offline Companion Screenshot](./offline_.png)
+
+---
+
+### 🎞️ Live Working GIF
+
+> See Lunaris AI responding to real-time queries.
+
+![Offline AI Companion in Action](./offline-companion.gif)
+
+---
+
+## 🧠 Model Information
+
+Currently using:
+
+- **Model:** `alpaca.7B`
+- **Inference Engine:** `Dalai`
+- **Prompt Template:** Alpaca-style instructions
+- **Generation Parameters (UI customizable):**
+  - `n_predict`: 200
+  - `top_k`: 40
+  - `top_p`: 0.8
+  - `temp`: 0.8
+  - `repeat_penalty`: 1.3
+
+---
+
+## 🛠️ Configuration & Tips
+
+- Use `shift + enter` for multi-line input in the prompt box.
+- Toggle parameters for more creative or deterministic results.
+- Switch models by modifying Dalai configuration (e.g., llama.7B).
+- Use the `"default"` template or customize prompt formats.
+
+---
+
+## 🎯 Future Enhancements
+
+✅ **Short Term:**
+
+- Add memory to retain context across turns  
+- Introduce voice-to-text input and text-to-speech output  
+- Optimize interface responsiveness and add themes  
+
+🚀 **Long Term:**
+
+- Integrate vector DB for semantic memory  
+- LangChain and Agent-based extensions  
+- Fully cross-platform packaged desktop app (Electron)
+
+---
+
+## 🤝 Contribution Guidelines
+
+We welcome all contributors! Whether it's fixing bugs, improving the UI, or adding new features — every bit helps 🌱
+
+### How to Contribute:
+
+1. Fork this repo
+2. Create a branch: `git checkout -b feature-name`
+3. Commit your changes
+4. Push and create a PR
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — you’re free to use, modify, and distribute.
+
+---
+
+## 🙌 Acknowledgements
+
+- 💡 [Meta AI - LLaMA](https://github.com/facebookresearch/llama)
+- 🦙 [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)
+- 🍹 [Dalai by @cocktailpeanut](https://github.com/cocktailpeanut/dalai)
+
+---
+
+## 👩‍💻 About the Creator
+
+**Nyx (a.k.a. nyhereo-benzai1)**  
+> AI Developer | Innovator | Dreamer  
+Building tools that respect your freedom, privacy, and potential.
+
+🌐 GitHub: [@nyhereo-benzai1](https://github.com/nyhereo-benzai1)
+
+---
+
+> “Lunaris AI is a step toward independent intelligence. Let’s shape a future where machines work *with* us — not *on* us.”
