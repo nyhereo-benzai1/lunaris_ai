@@ -142,10 +142,10 @@ We welcome all contributors! Whether it's fixing bugs, improving the UI, or addi
 
 ### How to Contribute:
 
-1. Fork this repo
-2. Create a branch: `git checkout -b feature-name`
-3. Commit your changes
-4. Push and create a PR
+1. Fork this repo  
+2. Create a branch: `git checkout -b feature-name`  
+3. Commit your changes  
+4. Push and create a PR  
 
 ---
 
@@ -155,11 +155,34 @@ This project is licensed under the **MIT License** — you’re free to use, mod
 
 ---
 
-## 🙌 Acknowledgements
+## ⚙️ Setup Guide
 
-- 💡 [Meta AI - LLaMA](https://github.com/facebookresearch/llama)
-- 🦙 [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)
-- 🍹 [Dalai by @cocktailpeanut](https://github.com/cocktailpeanut/dalai)
+Lunaris AI works best after completing a few quick setup steps:
+
+1. Make sure you have **Node.js** (preferably v14 or later) installed.
+
+2. Clone this repository and navigate to the folder:
+```bash
+git clone https://github.com/nyhereo-benzai1/lunaris_ai.git
+cd lunaris_ai
+```
+
+3. Use Dalai to download and set up LLaMA/Alpaca models:
+```bash
+npx dalai@latest install
+```
+
+4. Start the local Dalai server:
+```bash
+npx dalai serve
+```
+
+5. Open your browser and go to:
+```
+http://localhost:3000
+```
+
+> 🧘‍♀️ That’s it — your offline AI is now live and talking!
 
 ---
 
